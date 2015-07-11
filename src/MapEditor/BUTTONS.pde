@@ -1,0 +1,201 @@
+/*******************************************************
+ 
+ Add a ton of buttons
+ 
+ *******************************************************/
+
+void addButtons() {
+
+  //Enemy & Tower Buttons  
+  overviewControls.add( cp5.addBang("addEnemy").setPosition((width/6)-40, worldOffset[1]+50).setSize(80, 15).setLabel("Add Enemy").setVisible(false).setLock(true) );
+  styleButton("addEnemy");
+  overviewControls.add( cp5.addBang("addWave").setPosition((3*width/6)-40, worldOffset[1]+50).setSize(80, 15).setLabel("Add Wave").setVisible(false).setLock(true) );
+  styleButton("addWave");
+  overviewControls.add( cp5.addBang("addTower").setPosition((5*width/6)-40, worldOffset[1]+50).setSize(80, 15).setLabel("Add Tower").setVisible(false).setLock(true) );
+  styleButton("addTower");
+  
+  //Enemy Buttons
+  enemyControls.add( cp5.addBang("saveEnemy").setPosition( 100, worldOffset[1]+50).setSize(120, 15).setLabel("Save Enemy").setVisible(false).setLock(true) );
+  styleButton("saveEnemy");
+  enemyControls.add( cp5.addBang("enemyCharset").setPosition( 100, worldOffset[1]+90).setSize(120, 15).setLabel("Select Charset").setVisible(false).setLock(true) );
+  styleButton("enemyCharset");
+  enemyControls.add( cp5.addBang("enemyIcon").setPosition( 100, worldOffset[1]+110).setSize(120, 15).setLabel("Select Icon").setVisible(false).setLock(true) );
+  styleButton("enemyIcon");
+  enemyControls.add( cp5.addSlider("enemyMaxhealth").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+150).setRange(1, 1000).setNumberOfTickMarks(1000).setValue(5).linebreak() );
+  styleButton("enemyMaxhealth"); 
+  styleSlider("enemyMaxhealth"); 
+  nameSlider("enemyMaxhealth", "Health Points");
+  enemyControls.add( cp5.addSlider("enemyMoney").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+170).setRange(1, 200).setNumberOfTickMarks(200).setValue(5).linebreak() );
+  styleButton("enemyMoney"); 
+  styleSlider("enemyMoney"); 
+  nameSlider("enemyMoney", "Money when died");
+  enemyControls.add( cp5.addSlider("enemyMovespeed").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+190).setRange(1, 200).setNumberOfTickMarks(200).setValue(20).linebreak() );
+  styleButton("enemyMovespeed"); 
+  styleSlider("enemyMovespeed"); 
+  nameSlider("enemyMovespeed", "Movespeed in px/sec");
+  enemyControls.add( cp5.addSlider("enemyAnimationspeed").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+210).setRange(1, 100).setNumberOfTickMarks(100).setValue(8).linebreak() );
+  styleButton("enemyAnimationspeed"); 
+  styleSlider("enemyAnimationspeed"); 
+  nameSlider("enemyAnimationspeed", "Animationspeed in ms");
+  enemyControls.add( cp5.addSlider("enemyDamage").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+230).setRange(0, 100).setNumberOfTickMarks(101).setValue(0).linebreak() );
+  styleButton("enemyDamage"); 
+  styleSlider("enemyDamage"); 
+  nameSlider("enemyDamage", "Damage");
+
+  //Wave Buttons
+  waveControls.add( cp5.addBang("saveWave").setPosition( 100, worldOffset[1]+50).setSize(120, 15).setLabel("Save Wave").setVisible(false).setLock(true) );
+  styleButton("saveWave");
+  waveControls.add(  cp5.addSlider("waveDistance").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+90).setRange(100, 4000).setValue(1000).setNumberOfTickMarks(3901) );
+  styleButton("waveDistance"); 
+  styleSlider("waveDistance"); 
+  nameSlider("waveDistance", "Distance between enemies in ms");
+
+  //Tower Buttons
+  towerControls.add( cp5.addBang("saveTower").setPosition( 100, worldOffset[1]+50).setSize(120, 15).setLabel("Save Tower").setVisible(false).setLock(true) );
+  styleButton("saveTower");
+  towerControls.add( cp5.addTextfield("towerName").setCaptionLabel("Name of the Tower").setPosition(100, worldOffset[1]+90).setSize(120, 20).setFocus(true).setVisible(false).setLock(true).setColor(color(iColor3[0], iColor3[1], iColor3[2])) );
+  styleTextfield("towerName");
+  towerControls.add( cp5.addTextfield("towerDescription").setCaptionLabel("Short Description of the Tower").setPosition(100, worldOffset[1]+135).setSize(300, 20).setVisible(false).setLock(true).setColor(color(iColor3[0], iColor3[1], iColor3[2])) );
+  styleTextfield("towerDescription");
+  towerControls.add( cp5.addBang("towerCharset").setPosition( 100, worldOffset[1]+190).setSize(120, 15).setLabel("Select Charset").setVisible(false).setLock(true) );
+  styleButton("towerCharset");
+  towerControls.add( cp5.addBang("towerIcon").setPosition( 100, worldOffset[1]+210).setSize(120, 15).setLabel("Select Icon").setVisible(false).setLock(true) );
+  styleButton("towerIcon");
+  towerControls.add( cp5.addToggle("towerExplosionatenemy").setPosition( 100, worldOffset[1]+240).setSize(15, 15).setLabel("Explosion at Enemy").setVisible(false).setLock(true) );
+  styleToggle("towerExplosionatenemy"); 
+  towerControls.add( cp5.addToggle("towerHasshootinganimation").setPosition( 100, worldOffset[1]+260).setSize(15, 15).setLabel("Shooting Animation").setVisible(false).setLock(true) );
+  styleToggle("towerHasshootinganimation");
+  towerControls.add( cp5.addSlider("towerDamage").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+290).setRange(1, 200).setNumberOfTickMarks(200).setValue(5).linebreak() );
+  styleButton("towerDamage"); 
+  styleSlider("towerDamage"); 
+  nameSlider("towerDamage", "Damage");
+  towerControls.add( cp5.addSlider("towerFirerate").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+310).setRange(1, 3000).setNumberOfTickMarks(3000).setValue(500).linebreak() );
+  styleButton("towerFirerate"); 
+  styleSlider("towerFirerate"); 
+  nameSlider("towerFirerate", "Firerate in ms");
+  towerControls.add( cp5.addSlider("towerFireradius").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+330).setRange(1, 1000).setNumberOfTickMarks(1000).setValue(200).linebreak() );
+  styleButton("towerFireradius"); 
+  styleSlider("towerFireradius"); 
+  nameSlider("towerFireradius", "Fireradius in px");
+  towerControls.add( cp5.addToggle("towerSplash").setPosition( 100, worldOffset[1]+350).setSize(15, 15).setLabel("Splash Damage").setVisible(false).setLock(true) );
+  styleToggle("towerSplash");
+  towerControls.add( cp5.addSlider("towerSplashradius").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+370).setRange(0, 300).setValue(50).setNumberOfTickMarks(301).linebreak() );
+  styleButton("towerSplashradius"); 
+  styleSlider("towerSplashradius"); 
+  nameSlider("towerSplashradius", "Radius of Splash Damage in px");
+  towerControls.add( cp5.addSlider("towerSplashfactor").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+390).setRange(0, 1).setValue(0.4).linebreak() );
+  styleButton("towerSplashfactor"); 
+  styleSlider("towerSplashfactor"); 
+  nameSlider("towerSplashfactor", "Factor how many Damage is dealt in Splash");
+  towerControls.add( cp5.addSlider("towerCosts").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+410).setRange(1, 300).setValue(85).setNumberOfTickMarks(300).linebreak() );
+  styleButton("towerCosts"); 
+  styleSlider("towerCosts"); 
+  nameSlider("towerCosts", "Costs");
+  towerControls.add( cp5.addSlider("towerFreeze").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+430).setRange(0, 1).setValue(0).linebreak() );
+  styleButton("towerFreeze"); 
+  styleSlider("towerFreeze"); 
+  nameSlider("towerFreeze", "Freeze Factor");
+  towerControls.add( cp5.addSlider("towerMaxhealth").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+450).setRange(1, 1000).setValue(200).setNumberOfTickMarks(1000).linebreak() );
+  styleButton("towerMaxhealth"); 
+  styleSlider("towerMaxhealth"); 
+  nameSlider("towerMaxhealth", "Healthpoints");
+  towerControls.add( cp5.addSlider("towerDamageincrease").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+470).setRange(0, 4).setValue(0).linebreak() );
+  styleButton("towerDamageincrease"); 
+  styleSlider("towerDamageincrease"); 
+  nameSlider("towerDamageincrease", "Increased Damage per shot Factor (0 = no increase)");
+  towerControls.add( cp5.addSlider("towerUpdates").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+500).setRange(0, 2).setValue(0).setNumberOfTickMarks(3).linebreak() );
+  styleButton("towerUpdates"); 
+  styleSlider("towerUpdates"); 
+  nameSlider("towerUpdates", "Updates");
+  Controller tempController = cp5.addSlider("towerCostsu1").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+580).setRange(0, 300).setValue(100).setNumberOfTickMarks(301).linebreak();
+  towerControls.add( tempController );
+  towerUpdate1Controls.add( tempController );
+  styleButton("towerCostsu1"); 
+  styleSlider("towerCostsu1"); 
+  nameSlider("towerCostsu1", "Update 1: Costs");
+  tempController = cp5.addSlider("towerDamageu1").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+600).setRange(1, 200).setValue(5).setNumberOfTickMarks(200).linebreak();
+  towerControls.add( tempController );
+  towerUpdate1Controls.add( tempController );
+  styleButton("towerDamageu1"); 
+  styleSlider("towerDamageu1"); 
+  nameSlider("towerDamageu1", "Update 1: Damage");
+  tempController = cp5.addSlider("towerFirerateu1").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+620).setRange(1, 3000).setValue(500).setNumberOfTickMarks(3000).linebreak();
+  towerControls.add( tempController );
+  towerUpdate1Controls.add( tempController );
+  styleButton("towerFirerateu1"); 
+  styleSlider("towerFirerateu1"); 
+  nameSlider("towerFirerateu1", "Update 1: Firerate in ms");
+  tempController = cp5.addSlider("towerFireradiusu1").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+640).setRange(1, 1000).setValue(200).setNumberOfTickMarks(1000).linebreak();
+  towerControls.add( tempController );
+  towerUpdate1Controls.add( tempController );
+  styleButton("towerFireradiusu1"); 
+  styleSlider("towerFireradiusu1"); 
+  nameSlider("towerFireradiusu1", "Update 1: Fireradius in px");
+  tempController = cp5.addSlider("towerCostsu2").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+700).setRange(0, 300).setValue(100).setNumberOfTickMarks(301).linebreak();
+  towerControls.add( tempController );
+  towerUpdate2Controls.add( tempController );
+  styleButton("towerCostsu2"); 
+  styleSlider("towerCostsu2"); 
+  nameSlider("towerCostsu2", "Update 2: Costs");
+  tempController = cp5.addSlider("towerDamageu2").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+720).setRange(1, 200).setValue(5).setNumberOfTickMarks(200).linebreak();
+  towerControls.add( tempController );
+  towerUpdate2Controls.add( tempController );
+  styleButton("towerDamageu2"); 
+  styleSlider("towerDamageu2"); 
+  nameSlider("towerDamageu2", "Update 2: Damage");
+  tempController = cp5.addSlider("towerFirerateu2").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+740).setRange(1, 3000).setValue(500).setNumberOfTickMarks(3000).linebreak();
+  towerControls.add( tempController );
+  towerUpdate2Controls.add( tempController );
+  styleButton("towerFirerateu2"); 
+  styleSlider("towerFirerateu2"); 
+  nameSlider("towerFirerateu2", "Update 2: Firerate in ms");
+  tempController = cp5.addSlider("towerFireradiusu2").setVisible(false).setLock(true).setPosition(100, worldOffset[1]+760).setRange(1, 1000).setValue(200).setNumberOfTickMarks(1000).linebreak();
+  towerControls.add( tempController );
+  towerUpdate2Controls.add( tempController );
+  styleButton("towerFireradiusu2"); 
+  styleSlider("towerFireradiusu2"); 
+  nameSlider("towerFireradiusu2", "Update 2: Fireradius in px");
+
+  cp5.addBang("doNothingExceptWhiteStuff").setLabel("").lock().setPosition(0,0).setSize(width,worldOffset[1]).setColorActive(color(255,255,255)).setColorBackground(color(255,255,255)).setColorCaptionLabel(color(255,255,255)).setColorForeground(color(255,255,255)).setColorValueLabel(color(255,255,255));
+
+  //Editor Buttons
+  cp5.addBang("loadMap").setPosition(10, 10).setSize(120, 15).setLabel("Load Map"); 
+  styleButton("loadMap");
+  cp5.addBang("saveMap").setPosition(10, 30).setSize(120, 15).setLabel("Save Map"); 
+  styleButton("saveMap");
+  cp5.addBang("loadTileset").setPosition(10, 50).setSize(120, 15).setLabel("Load Tileset"); 
+  styleButton("loadTileset");
+  cp5.addBang("editorLevel1").setPosition(150, 10).setSize(17, 15).setLabel("1"); 
+  styleButton("editorLevel1");
+  cp5.addBang("editorLevel2").setPosition(150, 30).setSize(17, 15).setLabel("2"); 
+  styleButton("editorLevel2");
+  cp5.addBang("editorLevel3").setPosition(150, 50).setSize(17, 15).setLabel("3"); 
+  styleButton("editorLevel3");
+  cp5.addSlider("mapTileSize").setPosition(200, 10).setRange(32, 96).setNumberOfTickMarks(5).setDecimalPrecision(0).setValue(48).linebreak().getCaptionLabel().setText("Map Tilesize");
+  styleButton("mapTileSize");
+  styleSlider("mapTileSize");
+  cp5.addSlider("mapSizeX").setPosition(200, 30).setRange(20, 40).setNumberOfTickMarks(21).setDecimalPrecision(0).setValue(20).linebreak().getCaptionLabel().setText("Map Width");
+  styleButton("mapSizeX");
+  styleSlider("mapSizeX");
+  cp5.addSlider("mapSizeY").setPosition(200, 50).setRange(10, 30).setNumberOfTickMarks(21).setDecimalPrecision(0).setValue(15).linebreak().getCaptionLabel().setText("Map Height");
+  styleButton("mapSizeY");
+  styleSlider("mapSizeY");
+  cp5.addSlider("gameMoney").setPosition(650, 10).setRange(0, 300).setNumberOfTickMarks(301).setValue(100).linebreak().getCaptionLabel().setText("Startmoney");
+  styleButton("gameMoney");
+  styleSlider("gameMoney");
+  cp5.addSlider("gameLifes").setPosition(650, 30).setRange(1, 80).setNumberOfTickMarks(80).setValue(10).linebreak().getCaptionLabel().setText("Lifes");
+  styleButton("gameLifes");
+  styleSlider("gameLifes");
+  cp5.addSlider("enemyTileSize").setPosition(410, 30).setRange(32, 96).setNumberOfTickMarks(5).setValue(64).linebreak().getCaptionLabel().setText("Enemy Tilesize");
+  styleButton("enemyTileSize");
+  styleSlider("enemyTileSize");
+  cp5.addSlider("towerTileSize").setPosition(410, 50).setRange(32, 96).setNumberOfTickMarks(5).setValue(64).linebreak().getCaptionLabel().setText("Tower Tilesize");
+  styleButton("towerTileSize");
+  styleSlider("towerTileSize");
+  cp5.addBang("mapSettings").setPosition(410, 10).setSize(95, 15).setLabel("Enemies&Towers"); 
+  styleButton("mapSettings");
+  cp5.addBang("mapEditor").setPosition(510, 10).setSize(40, 15).setLabel("Editor"); 
+  styleButton("mapEditor");
+  cp5.addToggle("waypointsShow").setPosition(650, 50).setSize(100, 15).setLabel("Toggle Waypoints"); 
+  styleButton("waypointsShow");
+}

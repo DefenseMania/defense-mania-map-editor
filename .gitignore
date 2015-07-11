@@ -1,0 +1,6 @@
+**/.DS_STORE
+src/MapEditor/application.linux32
+src/MapEditor/application.linux64
+src/MapEditor/application.macosx
+src/MapEditor/application.windows32
+src/MapEditor/application.windows64
