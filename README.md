@@ -15,4 +15,4 @@
 
 ## contribute
 
-Fork the repo and make pull-requests. The code is kinda old, so please forgive me some mistakes and bad practises.
+Fork the repo and create some pull-requests.
